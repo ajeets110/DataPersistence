@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+
     <LinearLayout
         android:layout_width="230dp"
         android:layout_height="wrap_content"
@@ -9,58 +11,62 @@
 
 
         <TextView
-        android:id="@+id/tvName"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:id="@+id/tvName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:layout_marginBottom="5dp"/>
+            android:layout_marginBottom="5dp"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+
         <TextView
             android:id="@+id/tvDepartment"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             android:layout_marginTop="10dp"
-           />
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+
         <TextView
             android:id="@+id/tvSalary"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-           />
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+
         <TextView
             android:id="@+id/tvJoiningDtae"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textAppearance="@style/TextAppearance.AppCompat.Large"
             android:layout_marginTop="8dp"
-            />
+            android:textAppearance="@style/TextAppearance.AppCompat.Large" />
 
     </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
-        <Button
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="5dp"
-            android:id="@+id/btn_edi_employee"
-            android:background="#065"
-            android:textColor="#fff"
-            android:text="@string/edit"/>
+            android:orientation="vertical">
 
 
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="5dp"
-            android:id="@+id/btn_delete_employee"
-            android:textColor="#fff"
-            android:background="#067"
-            android:text="@string/delete"/>
+            <Button
+                android:id="@+id/btn_edi_employee"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:layout_gravity="right"
+                android:background="#065"
+                android:text="@string/edit"
+                android:textColor="#fff" />
+
+            <Button
+                android:id="@+id/btn_delete_employee"
+                android:layout_width="m"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:layout_margin="5dp"
+                android:background="#067"
+                android:text="@string/delete"
+                android:textColor="#fff" />
+
 
 
     </LinearLayout>
 
-</LinearLayout>
+</RelativeLayout>

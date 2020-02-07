@@ -3,6 +3,7 @@ package com.example.databasedemo;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
@@ -32,7 +33,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         editTextSalary = findViewById(R.id.editTextSalary);
         spinnerDept = findViewById(R.id.spinnerDepartment);
 
-        findViewById(R.id.buttonAddEmployee).setOnClickListener(this);
+        findViewById(R.id.btnAddEmployee).setOnClickListener(this);
         findViewById(R.id.tvViewEmployee).setOnClickListener(this);
 
         // in order to open or create database we use the following code
@@ -54,11 +55,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-            case R.id.buttonAddEmployee:
+            case R.id.btnAddEmployee:
                 addEmployee();
                 break;
             case R.id.tvViewEmployee:
                 // start activity to another activity to see the list of employees
+                Intent intent=new Intent(MainActivity.this,EmployeeActivity.class);
+                startActivity(intent);
 
                 break;
         }

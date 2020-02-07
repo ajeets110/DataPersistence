@@ -3,12 +3,16 @@ package com.example.databasedemo;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -23,10 +27,10 @@ public class EmployeeAdapter extends ArrayAdapter {
     SQLiteDatabase mDatabase;
 
 
-    public EmployeeAdapter(@NonNull Context context, int resource, int textViewResourceId, List<Employee> employees, Context context1, int layoutRes, SQLiteDatabase mDatabase) {
-        super(context, resource, textViewResourceId);
+    public EmployeeAdapter(@NonNull Context context, int layoutRes,List<Employee> employees ,SQLiteDatabase mDatabase) {
+        super(context, layoutRes, employees);
         this.employees = employees;
-        this.context = context1;
+        this.context = context;
         this.layoutRes = layoutRes;
         this.mDatabase = mDatabase;
     }
@@ -90,9 +94,67 @@ return v;
         alertDialog.show();
     }
 
-    private void loadEmployees() {
-    }
 
-    private void updateemployee(Employee employee) {
-    }
+
+    private void updateemployee(final Employee employee) {
+        AlertDialog.Builder alert=new AlertDialog.Builder(context);
+        LayoutInflater inflater=LayoutInflater.from(context);
+        View v=inflater.inflate(,null);
+        alert.setView(v);
+        final AlertDialog alertDialog=alert.create();
+        alertDialog.show();
+
+        final EditText eName = v.findViewById(R.id.editTextName);
+        final EditText editSalary = v.findViewById(R.id.editTextSalary);
+         final Spinner spinnerDept = v.findViewById(R.id.spinnerDepartment);
+
+        eName.setText(employee.getName());
+        editSalary.setText(String.valueOf(employee.getSalary()));
+        v.findViewById(R.id.btn_update_employee).setOnClickListener(new View.OnClickListener(){
+
+            @Override
+            public void onClick(View v) {
+                String name = eName.getText().toString().trim();
+                String salary = editSalary.getText().toString().trim();
+                String dept = spinnerDept.getSelectedItem().toString();
+
+
+                if (name.isEmpty()) {
+                    eName.setError("name field is mandatory");
+                    eName.requestFocus();
+                    return;
+                }
+
+                if (salary.isEmpty()) {
+                    editSalary.setError("salary field cannot be empty");
+                    editSalary.requestFocus();
+                    return;
+                }
+                String sql="UPDATE employees SET name=? , department = ?, salary=? WHERE id=?";
+                mDatabase.execSQL(sql,new String [] {name,dept,salary,String.valueOf(employee.getId())});
+                Toast.makeText(context, "employee updated", Toast.LENGTH_SHORT).show();
+                loadEmployees();
+                alertDialog.dismiss();
+            }
+        });}
+        private void loadEmployees() {
+        String sql="SELECT * FROM employees";
+        Cursor cursor=mDatabase.rawQuery(sql,null);
+
+            if (cursor.moveToFirst()) {
+                employees.clear();
+            }
+                do {
+                    employees.add(new Employee(
+                            cursor.getInt(0),
+                            cursor.getString(1),
+                            cursor.getString(2),
+                            cursor.getString(3),
+                            cursor.getDouble(4)
+                    ));
+                } while (cursor.moveToNext());
+                cursor.close();
+                notifyDataSetChanged();
+        }
+
 }
