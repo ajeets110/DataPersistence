@@ -6,60 +6,64 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-<LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_centerVertical="true"
-    android:orientation="vertical"
-    android:padding="16dp">
-
-
-    <TextView
-        android:id="@+id/textView"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/add_new_employee"
-        android:textAlignment="center"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        />
-    <Spinner
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:paddingLeft="6dp"
-        android:id="@+id/spinnerDepartment"
-        android:text=""/>
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/editTextSalary"
-        android:hint="@string/employee_salary"
-        android:inputType="number"
-        android:digits="0123456789"/>
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/editTextName"
-        android:hint="@string/add_employee"
+        android:layout_centerVertical="true"
+        android:orientation="vertical"
+        android:padding="16dp">
 
-     />
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/buttonAddEmployee"
-        android:text="@string/select_department"/>
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/tvViewEmployee"
-        android:padding="16dp"
-        android:text="@string/view_employees"
-        android:textAlignment="center"
-        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-        android:textStyle="bold"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp"
+            android:text="@string/add_a_new_employee"
+            android:textAlignment="center"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+
+        <EditText
+            android:id="@+id/editTextName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Enter the employee name"
+            android:textStyle="italic" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:paddingLeft="6dp"
+            android:text="@string/select_department" />
+
+        <Spinner
+            android:id="@+id/spinnerDepartment"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:entries="@array/departments" />
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/editTextSalary"
+            android:hint="@string/enter_employee_salary"
+            android:inputType="number"
+            android:digits="0123456789"/>
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/btnAddEmployee"
+            android:text="@string/add_employee"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/tvViewEmployee"
+            android:padding="16dp"
+            android:text="@string/view_employees"
+            android:textAlignment="center"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textStyle="bold"/>
 
 
-
-</LinearLayout>
+    </LinearLayout>
 
 </RelativeLayout>
