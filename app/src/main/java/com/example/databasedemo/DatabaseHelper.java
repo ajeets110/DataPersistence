@@ -29,11 +29,11 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         String sql = "CREATE TABLE " + TABLE_NAME + "(" +
-                COLUMN_ID + "INTEGER NOT NULL CONSTRAINT employee_pk PRIMARY KEY AUTOINCREMENT, " +
+                COLUMN_ID + " INTEGER NOT NULL CONSTRAINT employee_pk PRIMARY KEY AUTOINCREMENT, " +
                 COLUMN_NAME + " varchar(200) NOT NULL, " +
                 COLUMN_DEPT + " varchar(200) NOT NULL, " +
                 COLUMN_JOIN_DATE + " varchar(200) NOT NULL, " +
-                COLUMN_SALARY + "double NOT NULL);";
+                COLUMN_SALARY + " double NOT NULL);";
         db.execSQL(sql);
     }
 

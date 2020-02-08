@@ -30,6 +30,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:entries="@array/departments" />
+
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -37,6 +38,7 @@
         android:hint="@string/enter_employee_salary"
         android:inputType="number"
         android:digits="0123456789"/>
+
     <Button
         android:layout_width="match_parent"
         android:layout_height="match_parent"

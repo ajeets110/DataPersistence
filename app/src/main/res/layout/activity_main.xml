@@ -4,12 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    android:background="#E6000000">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
+        android:background="#0F000000"
         android:orientation="vertical"
         android:padding="16dp">
 
@@ -19,49 +21,70 @@
             android:layout_marginBottom="12dp"
             android:text="@string/add_a_new_employee"
             android:textAlignment="center"
-            android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+            android:textAllCaps="true"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:textColor="#E91E63"
+            android:textStyle="bold" />
 
         <EditText
             android:id="@+id/editTextName"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="40dp"
+            android:background="#11FFFFFF"
             android:hint="Enter the employee name"
-            android:textStyle="italic" />
+            android:textColor="#FFFFFF"
+            android:textColorHint="#7AFFFFFF" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:paddingLeft="6dp"
-            android:text="@string/select_department" />
+            android:text="@string/select_department"
+            android:textColor="#E91E63"
+            android:textColorHint="#7AFFFFFF" />
 
         <Spinner
             android:id="@+id/spinnerDepartment"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:entries="@array/departments" />
+            android:layout_marginTop="5dp"
+            android:background="#11FFFFFF"
+            android:entries="@array/departments"
+            android:spinnerMode="dialog" />
+
         <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
             android:id="@+id/editTextSalary"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginTop="10dp"
+            android:background="#11FFFFFF"
+            android:digits="0123456789"
             android:hint="@string/enter_employee_salary"
             android:inputType="number"
-            android:digits="0123456789"/>
+            android:textColor="#FFFFFF"
+            android:textColorHint="#7AFFFFFF"
+            android:textColorLink="#7AFFFFFF" />
+
         <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
             android:id="@+id/btnAddEmployee"
-            android:text="@string/add_employee"/>
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="50dp"
+            android:background="#E91E63"
+            android:text="@string/add_employee" />
 
         <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
             android:id="@+id/tvViewEmployee"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="10dp"
+            android:background="#E91E63"
             android:padding="16dp"
             android:text="@string/view_employees"
             android:textAlignment="center"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            android:textStyle="bold"/>
+            android:textStyle="bold" />
 
 
     </LinearLayout>
